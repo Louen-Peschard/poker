@@ -6,7 +6,7 @@ from card import Card
 class Deck:
     """A stack with all the game's cards"""
 
-    _cards: list
+    _cards = []
 
     def __init__(self):
         for i in range(0, len(constants.SYMBOLS)):
@@ -15,7 +15,7 @@ class Deck:
                 self._cards.append(card)
 
     def shuffle(self):
-        random.shuffle(self.cards)
+        random.shuffle(self._cards)
 
     @property
     def cards(self):
