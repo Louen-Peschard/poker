@@ -5,7 +5,8 @@ from card import Card
 
 class Deck:
     """A stack with all the game's cards"""
-    _cards = []
+
+    _cards: list
 
     def __init__(self):
         for i in range(0, len(constants.SYMBOLS)):
