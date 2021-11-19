@@ -1,6 +1,6 @@
 class Board:
 
-    _cards: list
+    _cards= []
 
     def __init__(self, cards: list):
         self._cards = cards

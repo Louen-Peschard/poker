@@ -4,17 +4,20 @@ from deck import Deck
 
 class Game:
 
-    _deck: Deck
-    _players: list
 
     def __init__(self):
+        self._players = []
         self._deck = Deck()
         self._deck.shuffle()
-        for i in range(0, 2):
-            player = Player()
+        for i in range(0, 3):
+            player = Player(i)
             self._players.append(player)
 
     """First distribution of cards"""
     def start_game(self):
-        for i in range(0, 2):
-            self._players[i].append(self._deck[0:1])
+        for i in range(0, 3):
+            for j in range(0, 1):
+                self._players[i].cards.append(self._deck.cards.pop(0))
+
+# g = Game()
+# g.start_game()
