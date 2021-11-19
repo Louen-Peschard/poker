@@ -9,8 +9,8 @@ class Deck:
     _cards = []
 
     def __init__(self):
-        for i in range(0, len(constants.SYMBOLS)):
-            for j in range(0, len(constants.VALUES)):
+        for i in range(len(constants.SYMBOLS)):
+            for j in range(len(constants.VALUES)):
                 card = Card(constants.SYMBOLS[i], constants.VALUES[j])
                 self._cards.append(card)
 
