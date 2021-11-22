@@ -2,7 +2,6 @@ from deck import Deck
 import random
 
 if __name__ == '__main__':
-
     # Demande un seed à l'utilisateur pour "contrôler" le random
     user_seed = input("Spécifez un seed : ")
     random.seed(user_seed)
