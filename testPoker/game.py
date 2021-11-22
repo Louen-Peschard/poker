@@ -59,7 +59,7 @@ class Game:
 
         if self._players[player_number].stack < self.user_bet:
             print("Vous ne pouvez pas miser autant !")
-            Game.bet_choice(self, )
+            Game.bet_choice(self, player_number)
 
         elif self._players[player_number].stack == self.user_bet:
             print("Tapis !")
