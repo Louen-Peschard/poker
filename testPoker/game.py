@@ -25,12 +25,14 @@ class Game:
                 print(self._players[i].cards[j])
             print("------------")  # ne sert qu'à rendre le terminal plus lisible
 
-        print("Cartes de la table :")
+        # print("Cartes de la table :")
         for i in range(5):
             self._board.cards.append(self._deck.cards.pop(0))
-            print(self._board.cards[i])
+            # print(self._board.cards[i])
+            # Pour vérifier les cartes
 
     def bet_choice(self, player_number):
+        print("Joueur : " + str(player_number))
         self.user_choice = str(input("Miser | Suivre | Check | Se coucher "))
 
         if self.user_choice == "Miser":
