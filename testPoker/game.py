@@ -1,7 +1,7 @@
 from player import Player
 from deck import Deck
 from board import Board
-
+from compare import Compare
 
 class Game:
 
@@ -28,7 +28,7 @@ class Game:
         # print("Cartes de la table :")
         for i in range(5):
             self._board.cards.append(self._deck.cards.pop(0))
-            # print(self._board.cards[i])
+            print(self._board.cards[i])
             # Pour vérifier les cartes
 
     def bet_choice(self, player_number):
@@ -118,6 +118,9 @@ class Game:
 
     def turn_final(self):
         print("fin")
+        for i in range(4):
+            print("Joueur "+ str(i) + " :")
+            print(Compare(self._players[i].player_cards, self._board.board_cards).board_and_hand_strength(5))
         # Comparaison à faire
         # Affichage du vainqueur
 

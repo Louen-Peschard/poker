@@ -11,9 +11,9 @@ if __name__ == '__main__':
 
     deck = Deck()
     deck.shuffle()
-    for i in range(0, len(deck.cards)):
-        print(deck.cards[i])
+    # for i in range(0, len(deck.cards)):
+    #     print(deck.cards[i])
 
 g = Game()
 g.start_game()
-g.turn_one()
+g.turn_final()

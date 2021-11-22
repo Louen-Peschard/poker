@@ -18,9 +18,7 @@ class Card:
 
     def card_strength(self):
         value = 0
-        if 2 <= self._value <= 10:
-            value = self._value
-        elif self._value == "V":
+        if self._value == "V":
             value = 11
         elif self._value == "Q":
             value = 12
@@ -28,4 +26,9 @@ class Card:
             value = 13
         elif self._value == "A":
             value = 14
+        elif 2 <= int(self._value) <= 10:
+            value = int(self._value)
         return value
+
+    def card_symbol(self):
+        return self._symbol
