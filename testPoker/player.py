@@ -8,12 +8,6 @@ class Player:
         self.number = player_number
         self.keep_playing = 1
 
-
-
-
-
-
-
-
-
-
+    @property
+    def player_cards(self):
+        return self.cards

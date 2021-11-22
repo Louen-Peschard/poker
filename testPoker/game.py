@@ -122,6 +122,4 @@ class Game:
         # Affichage du vainqueur
 
 
-g = Game()
-g.start_game()
-g.turn_one()
+
