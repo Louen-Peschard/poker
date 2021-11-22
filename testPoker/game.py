@@ -40,7 +40,7 @@ class Game:
             self._board += self.current_bet
             self._players[player_number].stack -= self.current_bet
 
-        elif self.user_choice == "Suivre":
+        elif self.user_choice == "Check":
             if self._players[player_number].stack == self.current_bet:
                 print("Check")
 
@@ -76,7 +76,7 @@ class Game:
         for i in range(4):
             if self._players[i].keep_playing == 1:
                 Game.bet_choice(self, i)
-        print("Pot en jeu : " + self._board.stack)
+        print("Pot en jeu : " + str(self._board.stack))
         Game.turn_two(self)
 
     def turn_two(self):
@@ -86,7 +86,7 @@ class Game:
         for i in range(4):
             if self._players[i].keep_playing == 1:
                 Game.bet_choice(self, i)
-        print("Pot en jeu : " + self._board.stack)
+        print("Pot en jeu : " + str(self._board.stack))
         Game.turn_three(self)
 
     def turn_three(self):
@@ -96,7 +96,7 @@ class Game:
         for i in range(4):
             if self._players[i].keep_playing == 1:
                 Game.bet_choice(self, i)
-        print("Pot en jeu : " + self._board.stack)
+        print("Pot en jeu : " + str(self._board.stack))
         Game.turn_four(self)
 
     def turn_four(self):
@@ -106,7 +106,7 @@ class Game:
         for i in range(4):
             if self._players[i].keep_playing == 1:
                 Game.bet_choice(self, i)
-        print("Pot en jeu : " + self._board.stack)
+        print("Pot en jeu : " + str(self._board.stack))
         Game.turn_final(self)
 
     def turn_final(self):
