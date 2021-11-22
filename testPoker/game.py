@@ -33,7 +33,7 @@ class Game:
 
     def bet_choice(self, player_number):
         print("Joueur : " + str(player_number))
-        self.user_choice = str(input("Miser | Suivre | Check | Se coucher "))
+        self.user_choice = str(input("Miser | Suivre | Check | Se coucher | Afficher son jeu "))
 
         if self.user_choice == "Miser":
             Game.bet(self, player_number)
@@ -49,8 +49,13 @@ class Game:
         elif self.user_choice == "Se coucher":
             self._players[player_number].keep_playing = 0
 
+        elif self.user_choice == "Afficher son jeu":
+            for i in range(2):
+                print(self._players[player_number].cards[i])
+
         else:
-            self.user_choice = str(input("Miser | Suivre | Check | Se coucher "))
+            print("Error 404 : Try again")
+            Game.bet_choice(self, player_number)
 
     def bet(self, player_number):
         self.user_bet = int(input("Combien voulez-vous miser ? "))
