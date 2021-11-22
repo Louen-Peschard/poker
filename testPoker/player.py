@@ -4,8 +4,9 @@ class Player:
 
     def __init__(self, player_number):
         self.cards = []
-        self.stack: int
+        self.stack = 5000
         self.number = player_number
+        self.keep_playing = 1
 
 
 

@@ -1,7 +1,5 @@
-
 class Board:
 
-
-    def __init__(self, ):
+    def __init__(self):
         self.cards = []
-        self.stack: int
+        self.stack = 0
