@@ -6,7 +6,7 @@ class Card:
         self._value = value
 
     def __str__(self):
-        return self._value + " " + self._symbol
+        return self._value + self._symbol
 
     @property
     def symbol(self):
@@ -20,12 +20,12 @@ class Card:
         value = 0
         if 2 <= self._value <= 10:
             value = self._value
-        elif self._value == "valet":
+        elif self._value == "V":
             value = 11
-        elif self._value == "queen":
+        elif self._value == "Q":
             value = 12
-        elif self._value == "king":
+        elif self._value == "K":
             value = 13
-        elif self._value == "ace":
+        elif self._value == "A":
             value = 14
         return value

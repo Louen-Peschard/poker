@@ -24,3 +24,4 @@ class Compare:
         value += card_two_value + card_two_value
 
         return value
+
