@@ -1,5 +1,3 @@
-from deck import Deck
-
 
 class Player:
     """A player ran by the computer"""
