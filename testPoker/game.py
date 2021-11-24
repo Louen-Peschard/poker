@@ -3,14 +3,18 @@ from deck import Deck
 from board import Board
 from compare import Compare
 
+
 class Game:
 
     def __init__(self):
+        # The real player
+        self._user = Player()
         self._players = []
         self._deck = Deck()
         self._deck.shuffle()
         self._board = Board()
         self.current_bet = 0
+        # TODO : remplacer 4 joueurs par 3
         for i in range(4):
             player = Player(i)
             self._players.append(player)
@@ -24,6 +28,12 @@ class Game:
                 self._players[i].cards.append(self._deck.cards.pop(0))
                 print(self._players[i].cards[j])
             print("------------")  # ne sert qu'à rendre le terminal plus lisible
+        # User cards
+        print("Vos cartes :")
+        for i in range(2):
+            self._user.cards.append(self._deck.cards.pop(0))
+            print(self.game_user.cards[i])
+        print("------------")  # ne sert qu'à rendre le terminal plus lisible
 
         # print("Cartes de la table :")
         for i in range(5):
@@ -119,10 +129,11 @@ class Game:
     def turn_final(self):
         print("fin")
         for i in range(4):
-            print("Joueur "+ str(i) + " :")
+            print("Joueur " + str(i) + " :")
             print(Compare(self._players[i].player_cards, self._board.board_cards).board_and_hand_strength(5))
         # Comparaison à faire
         # Affichage du vainqueur
 
-
-
+    @property
+    def game_user(self):
+        return self._user

@@ -1,11 +1,10 @@
-
 class Player:
     """A player ran by the computer"""
 
-    def __init__(self, player_number):
+    def __init__(self, *args):
         self.cards = []
         self.stack = 5000
-        self.number = player_number
+        self.number = args
         self.keep_playing = 1
 
     @property
