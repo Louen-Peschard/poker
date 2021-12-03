@@ -5,6 +5,14 @@ import tkinter as tk
 from tkinter.messagebox import showinfo
 
 
+# Initializing the game
+from game import Game
+
+game = Game()
+game.start_game()
+for i in range(2):
+    print(game.game_user.player_cards[i])
+
 class Interface:
     OptionList = [
         "Action",
@@ -15,29 +23,56 @@ class Interface:
 
     def __init__(self):
         window = Tk()
-        window.title("Projet-Poker")
-        window.geometry("400x400")
-        # Panel
-        p1 = PanedWindow(orient='vertical')
-        p1.pack(fill=BOTH, expand=1)
-        top = Label(Ap1, bg='green')
-        p1.add(top)
+        window.title("Poker")
+        window.geometry("500x500")
+        window.maxsize = window.maxsize = (500, 500)
 
-        bottom = Label(p1, bg='#7BEE9D')
-        p1.add(bottom)
+        #Creating Canvas
+        canvas_topLeft = Canvas(window, height=500, width=800)
+        canvas_topLeft.pack(expand=YES, fill=BOTH, side=TOP, anchor=NW)
 
-        self.optionList()
-        variable = tk.StringVar(bottom)
-        variable.set(self.OptionList[0])
+        canvas_topRight = Canvas(window, height=500, width=800)
+        canvas_topRight.pack(expand=YES, fill=BOTH, side=TOP, anchor=NE)
 
-        opt = tk.OptionMenu(bottom, variable, *self.OptionList)
-        opt.config(width=10, font=('Helvetica', 10))
-        opt.pack(side=TOP, anchor=NW)
+        #Creating Frame
+        left_frame = Frame(canvas_topLeft, bg='green', bd=5)
+        left_frame.place(relx=0, rely=0, relwidth=0.5, relheight=1, anchor='nw')
 
-        validateButton = Button(text="Valider", master=p1, command=self.validateButton)
+        right_frame = Frame(canvas_topRight, bg='light green', bd=5)
+        right_frame.place(relx=1, rely=0, relwidth=0.5, relheight=1, anchor='ne')
+
+
+        label_frame = Frame(left_frame, bg='green', bd=5)
+        label_frame.place(relx=0.5, relwidth=0.9, anchor='n')
+
+
+
+
+
+
+        # Label
+        label_Cards = Label(label_frame,bg='green', text="Vos cartes :", font=("Courrier", 20))
+        label_Cards.pack()
+
+
+
+        # Card 1
+        card1 = PhotoImage(file="cards-assets/{}.gif".format(game.game_user.player_cards[0])).zoom(50).subsample(64)
+        button_card1 = Button(left_frame, image=card1, bd=0, relief=SUNKEN, command=None)
+        button_card1.place(relx=0.5, rely=5, relwidth=5, relheight=5)
+        button_card1.pack()
+        # Card 2
+        card2 = PhotoImage(file="cards-assets/{}.gif".format(game.game_user.player_cards[1])).zoom(50).subsample(64)
+        button_card2 = Button(left_frame, image=card2, bg="light green", bd=0, relief=SUNKEN, command=None)
+        button_card2.pack()
+
+
+
+        validateButton = Button(text="Valider", master=canvas_topRight, command=self.validateButton)
         validateButton.config(width=10, font=('Helvetica', 10))
         validateButton.pack(side=BOTTOM, anchor=SE)
 
+        #Display
         window.mainloop()
 
     def optionList(self):
