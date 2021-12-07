@@ -4,7 +4,7 @@ from card import Card
 
 
 class Deck:
-    """A stack with all the game's cards"""
+    """A stack with 52 cards"""
 
     _cards = []
 

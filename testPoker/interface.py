@@ -1,12 +1,9 @@
 from tkinter import *
-# import game
 import tkinter as tk
-
 from tkinter.messagebox import showinfo
-
-# Initializing the game
 from game import Game
 
+# Initializing the game
 game = Game()
 game.start_game()
 for i in range(2):
@@ -14,6 +11,7 @@ for i in range(2):
 
 
 class Interface:
+
     OptionList = [
         "Action",
         "Raise",
@@ -22,6 +20,7 @@ class Interface:
     ]
 
     def __init__(self):
+        # Creating the window
         window = Tk()
         window.title("Poker")
         window.geometry("500x500")

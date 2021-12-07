@@ -11,6 +11,7 @@ Application imitant le principe d'un jeu de poker, avec trois autres joueurs aut
 
 ## Ce qu'il reste à faire :
 
+- Champ de texte pour rentrer une seed
 - Finir l'interface + le back
 - Docstring
 - README
