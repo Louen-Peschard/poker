@@ -11,18 +11,7 @@ class Compare:
         self.board_cards = board_cards_to_compare
         self.player_and_board_cards = self.player_cards
 
-    def hand_strength(self):
-        value = 0
-        occurence_result = self.test_occurence(self.player_cards)
 
-        if occurence_result == "One Pair":
-            value += 1000
-        if self.player_cards[0].card.symbol == self.player_cards[0].card.symbol:
-            value += 20
-
-        value += self.player_cards[0].card_strength(self) + self.player_cards[1].card_strength(self)
-
-        return value
 
     def board_and_hand_strength(self, number_of_draw):
         cards_draw = number_of_draw
