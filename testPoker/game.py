@@ -88,6 +88,7 @@ class Game:
                 else:
                     self.user_choice = "Se coucher"
         print(self.user_choice)
+
         #Ajout du Bet
         if self.user_choice == "Miser":
             Game.bet(self, player_number, turn)
