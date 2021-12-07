@@ -225,6 +225,7 @@ class Game:
         for i in range(4):
             if winner == self._players[i].value and self._players[i].keep_playing == 1:
                 print('Player '+str(i)+' win '+str(self._board.stack))
+                print(Compare(self._players[i].player_cards, self._board.board_cards).text_combinaison(5))
                 self._players[i].stack += self._board.stack
                 self._board.stack = 0
 

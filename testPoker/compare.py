@@ -43,12 +43,12 @@ class Compare:
             value += 1000
         for i in range(len(self.player_and_board_cards)):  # Hauteur / Gagne en fonction de la valeur totale des cartes
             value += self.player_and_board_cards[i].card_strength()
+        self.player_and_board_cards = self.player_cards
         return value
 
 
     def text_combinaison(self, number_of_draw):
         cards_draw = number_of_draw
-        value = 0
         for i in range(cards_draw):
             self.player_and_board_cards.append(self.board_cards[i])  # Liste des cartes joueur + plateau
 
@@ -61,7 +61,7 @@ class Compare:
         elif straight_result == "Straight" and flush_result == "Flush":  # Quinte Flush / Gagne sur Carre
             return "Quinte Flush"
         elif occurence_result == "Four of a Kind":  # Carre / Gagne sur Full
-            return "Carre"
+            return "Four of a Kind"
         elif occurence_result == "Full House":  # Full / Gagne sur Couleur
             return "Full"
         elif flush_result == "Flush":  # Couleur / Gagne sur Suite
@@ -74,6 +74,7 @@ class Compare:
             return "Two Pair"
         elif occurence_result == "One Pair":  # Paire / Gagne sur Hauteur
             return "One Pair"
+        self.player_and_board_cards = self.player_cards
         return "Hauteur"
 
     def list_in_value(self, list_parameter):
