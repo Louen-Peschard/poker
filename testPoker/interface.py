@@ -31,7 +31,7 @@ class Interface:
         canvas_topLeft = Canvas(window, height=500, width=800)
         canvas_topLeft.pack(expand=YES, fill=BOTH, side=TOP, anchor=NW)
 
-        canvas_topRight = Canvas(window, height=500, width=800)
+        canvas_topRight = Canvas(canvas_topLeft, height=500, width=800)
         canvas_topRight.pack(expand=YES, fill=BOTH, side=TOP, anchor=NE)
 
         #Creating Frame
@@ -45,29 +45,46 @@ class Interface:
         label_frame = Frame(left_frame, bg='green', bd=5)
         label_frame.place(relx=0.5, relwidth=0.9, anchor='n')
 
-
-
-
-
+        label_board_frame = Frame(right_frame, bg='light green', bd=5)
+        label_board_frame.place(relx=0.5, relwidth=1.5, anchor='n')
 
         # Label
-        label_Cards = Label(label_frame,bg='green', text="Vos cartes :", font=("Courrier", 20))
+        label_Cards = Label(label_frame, bg='green', text="Vos cartes :", font=("Courrier", 20))
         label_Cards.pack()
 
+        label_Boards_Cards = Label(label_board_frame, bg='light green', text="Board :", font=("Courrier", 20))
+        label_Boards_Cards.pack()
 
-
-        # Card 1
-        card1 = PhotoImage(file="cards-assets/{}.gif".format(game.game_user.player_cards[0])).zoom(50).subsample(64)
-        button_card1 = Button(left_frame, image=card1, bd=0, relief=SUNKEN, command=None)
+        # Card 1 hands
+        card1Hand = PhotoImage(file="cards-assets/{}.gif".format(game.game_user.player_cards[0])).zoom(50).subsample(64)
+        button_card1 = Button(label_frame, image=card1Hand, bd=0, relief=SUNKEN, command=None)
         button_card1.place(relx=0.5, rely=5, relwidth=5, relheight=5)
         button_card1.pack()
-        # Card 2
-        card2 = PhotoImage(file="cards-assets/{}.gif".format(game.game_user.player_cards[1])).zoom(50).subsample(64)
-        button_card2 = Button(left_frame, image=card2, bg="light green", bd=0, relief=SUNKEN, command=None)
-        button_card2.pack()
+        # Card 2 hands
+        card2Hand = PhotoImage(file="cards-assets/{}.gif".format(game.game_user.player_cards[1])).zoom(50).subsample(64)
+        button_cardHand2 = Button(label_frame, image=card2Hand, bg="light green", bd=0, relief=SUNKEN, command=None)
+        button_cardHand2.place(relx=0.5, rely=5, relwidth=5, relheight=5)
+        button_cardHand2.pack()
 
+        # Card 1 Board
+        card1Board = PhotoImage(file="cards-assets/{}.gif".format(game._board.board_cards[0])).zoom(50).subsample(64)
+        button_cardBoard1 = Button(label_board_frame, image=card1Board, bd=0, relief=SUNKEN, command=None)
+        button_cardBoard1.place(relx=0.5, rely=5, relwidth=5, relheight=5)
+        button_cardBoard1.pack()
 
+        # Card 2 Board
+        card2Board = PhotoImage(file="cards-assets/{}.gif".format(game._board.board_cards[1])).zoom(50).subsample(64)
+        button_cardBoard2 = Button(label_board_frame, image=card2Board, bd=0, relief=SUNKEN, command=None)
+        button_cardBoard2.place(relx=0.5, rely=5, relwidth=5, relheight=5)
+        button_cardBoard2.pack()
 
+        # Card 3 Board
+        card3Board = PhotoImage(file="cards-assets/{}.gif".format(game._board.board_cards[2])).zoom(50).subsample(64)
+        button_cardBoard3 = Button(label_board_frame, image=card3Board, bd=0, relief=SUNKEN, command=None)
+        button_cardBoard3.place(relx=0.5, rely=5, relwidth=5, relheight=5)
+        button_cardBoard3.pack()
+
+        #Button
         validateButton = Button(text="Valider", master=canvas_topRight, command=self.validateButton)
         validateButton.config(width=10, font=('Helvetica', 10))
         validateButton.pack(side=BOTTOM, anchor=SE)
@@ -107,6 +124,3 @@ class Interface:
 
 if __name__ == '__main__':
     i = Interface()
-
-'''if __name__ == '__main__':
-    g = game()'''
