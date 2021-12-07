@@ -1,21 +1,18 @@
-# poker
+# Jeu Poker
 
-# Fonctionnalités implémentée:
+## Description du projet :
 
--Seed
+Application imitant le principe d'un jeu de poker, avec trois autres joueurs automatiques.
 
--Création d'un deck de 52 cartes aléatoire
+## Fonctionnalités principales :
 
--Mises (en cours)
+- Génération des cartes avec une seed
+- Interface graphique avec affichage des cartes de la main du joueur
 
--Distribution (en cours)
+## Ce qu'il reste à faire :
 
-# Fonctionnalités à faire :
-
--Affichage des cartes (en cours)
-
--"IA"
-
-# Bonus
-
--Comparaison des combinaisons
+- Finir l'interface + le back
+- Docstring
+- README
+- requirements.txt
+- Encapsuler les variables
