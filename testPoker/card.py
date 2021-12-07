@@ -18,7 +18,7 @@ class Card:
 
     def card_strength(self):
         value = 0
-        if self._value == "V":
+        if self._value == "J":
             value = 11
         elif self._value == "Q":
             value = 12

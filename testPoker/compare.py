@@ -45,6 +45,37 @@ class Compare:
             value += self.player_and_board_cards[i].card_strength()
         return value
 
+
+    def text_combinaison(self, number_of_draw):
+        cards_draw = number_of_draw
+        value = 0
+        for i in range(cards_draw):
+            self.player_and_board_cards.append(self.board_cards[i])  # Liste des cartes joueur + plateau
+
+        occurence_result = self.test_occurence(self.player_cards)
+        flush_result = self.test_flush(self.player_cards)
+        straight_result = self.test_straight(self.player_cards)
+
+        if straight_result == "Royal" and flush_result == "Flush":  # Quinte Flush Royale / Gagne toujours
+            return "Quinte Flush Royale"
+        elif straight_result == "Straight" and flush_result == "Flush":  # Quinte Flush / Gagne sur Carre
+            return "Quinte Flush"
+        elif occurence_result == "Four of a Kind":  # Carre / Gagne sur Full
+            return "Carre"
+        elif occurence_result == "Full House":  # Full / Gagne sur Couleur
+            return "Full"
+        elif flush_result == "Flush":  # Couleur / Gagne sur Suite
+            return "Flush"
+        elif straight_result == "Straight":  # Suite / Gagne sur Brelan
+            return "Straight"
+        elif occurence_result == "Three of a Kind":  # Brelan / Gagne sur Double Paire
+            return "Three of a Kind"
+        elif occurence_result == "Two Pair":  # Double Paire / Gagne sur Paire
+            return "Two Pair"
+        elif occurence_result == "One Pair":  # Paire / Gagne sur Hauteur
+            return "One Pair"
+        return "Hauteur"
+
     def list_in_value(self, list_parameter):
         list_of_cards = list_parameter
         list_of_value = []
