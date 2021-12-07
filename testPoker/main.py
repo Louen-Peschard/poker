@@ -16,4 +16,5 @@ if __name__ == '__main__':
 
 g = Game()
 g.start_game()
+g.turn_one()
 g.turn_final()
