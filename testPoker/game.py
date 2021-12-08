@@ -216,6 +216,7 @@ class Game:
         winner = 0
         for i in range(self._players_number):
             if self._players[i].keep_playing == 1:
+
                 self._players[i].value = Compare(self._players[i].player_cards,
                                                  self._board.board_cards).board_and_hand_strength(5)
                 print("Joueur " + str(i) + " :")
