@@ -9,15 +9,12 @@ class Game:
     def __init__(self):
         # Number of players
         self._players_number = 4
-        # # The real player
-        # self._user = Player()
-        # AI players
+        # _players[0] = user
         self._players = []
         self._deck = Deck()
         self._deck.shuffle()
         self._board = Board()
         self._current_bet = 0
-        # TODO : remplacer 4 joueurs par 3
         for i in range(self._players_number):
             player = Player(i)
             self._players.append(player)
@@ -28,8 +25,8 @@ class Game:
         for i in range(self._players_number):
             print("Cartes du joueur " + str(i) + " :")
             for j in range(2):
-                self._players[i].cards.append(self._deck.cards.pop(0))
-                print(self._players[i].cards[j])
+                self._players[i].player_cards.append(self._deck.cards.pop(0))
+                print(self._players[i].player_cards[j])
             print("------------")
         # For the board
         print("Cartes de la table :")
@@ -108,7 +105,7 @@ class Game:
 
         elif self.user_choice == "Afficher son jeu":
             for i in range(2):
-                print(self._players[player_number].cards[i])
+                print(self._players[player_number].player_cards[i])
             Game.bet_choice(self, player_number, turn)
 
         else:

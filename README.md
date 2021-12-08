@@ -2,7 +2,7 @@
 
 ## Description du projet :
 
-Application imitant le principe d'un jeu de poker, avec trois autres joueurs automatiques.
+Application imitant le principe d'une partie de poker, avec trois autres joueurs automatiques.
 
 ## Fonctionnalités principales :
 
