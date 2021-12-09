@@ -34,3 +34,7 @@ class Player:
 
     def set_stack(self, value):
         self._stack = value
+
+    @property
+    def cards(self):
+        return self._cards
