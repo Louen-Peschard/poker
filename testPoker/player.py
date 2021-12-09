@@ -3,7 +3,7 @@ class Player:
 
     def __init__(self, number: int):
         self._cards = []
-        self._stack = 5000
+        self._stack = 5000000
         self._number = number
         self._keep_playing = 1
         self._value = 0
