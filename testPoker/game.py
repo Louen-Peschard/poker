@@ -130,7 +130,7 @@ class Game:
 
         elif self._players[player_number].player_stack == self.user_bet:
             print("Tapis !")
-            self._board.player_stack += self.user_bet
+            self._board.stack += self.user_bet
             self._players[player_number].player_stack -= self.user_bet
 
         else:
@@ -226,6 +226,7 @@ class Game:
         for i in range(self._players_number):
             if winner == self._players[i].value and self._players[i].keep_playing == 1:
                 print('Player ' + str(i) + ' win ' + str(self._board.stack))
+                print(Compare(self._players[i].player_cards, self._board.board_cards).text_combinaison(5))
                 self._players[i].set_stack(self._players[i].player_stack + self._board.stack)
                 self._board.stack = 0
 
