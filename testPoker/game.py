@@ -100,7 +100,7 @@ class Game:
             Game.bet(self, player_number, turn)
 
         elif self.user_choice == "Suivre":
-            self._board.stack += self._current_bet
+            self._board.set_stack(self._board.board_stack + self._current_bet)
             self._players[player_number].set_stack(self._players[player_number].player_stack - self._current_bet)
 
         elif self.user_choice == "Check":
@@ -122,7 +122,7 @@ class Game:
     def bet(self, player_number, turn):
         if player_number == self._player_user:
             self.user_bet = int(input("Combien voulez-vous miser ? "))
-        elif self._board.stack == 0:
+        elif self._board.board_stack == 0:
             self.user_bet = 20
         else:
             self.user_bet = self.user_bet * 1.5
@@ -137,11 +137,11 @@ class Game:
 
         elif self._players[player_number].player_stack == self.user_bet:
             print("Tapis !")
-            self._board.stack += self.user_bet
+            self._board.board_stack += self.user_bet
             self._players[player_number].player_stack -= self.user_bet
 
         else:
-            self._board.stack += self.user_bet
+            self._board.set_stack(self._board.board_stack + self.user_bet)
             self._players[player_number].set_stack(self._players[player_number].player_stack - self.user_bet)
 
         self._current_bet = self.user_bet
@@ -162,7 +162,7 @@ class Game:
             for i in range(self._players_number):
                 if self._players[i].keep_playing == 1:
                     Game.bet_choice(self, i, turn)
-            print("Pot en jeu : " + str(self._board.stack))
+            print("Pot en jeu : " + str(self._board.board_stack))
             Game.turn_two(self)
 
     def turn_two(self):
@@ -184,7 +184,7 @@ class Game:
             for i in range(self._players_number):
                 if self._players[i].keep_playing == 1:
                     Game.bet_choice(self, i, turn)
-            print("Pot en jeu : " + str(self._board.stack))
+            print("Pot en jeu : " + str(self._board.board_stack))
             Game.turn_three(self)
 
     def turn_three(self):
@@ -206,7 +206,7 @@ class Game:
             for i in range(self._players_number):
                 if self._players[i].keep_playing == 1:
                     Game.bet_choice(self, i, self._players_number)
-            print("Pot en jeu : " + str(self._board.stack))
+            print("Pot en jeu : " + str(self._board.board_stack))
             Game.turn_four(self)
 
     def turn_four(self):
@@ -228,7 +228,7 @@ class Game:
             for i in range(self._players_number):
                 if self._players[i].keep_playing == 1:
                     Game.bet_choice(self, i, turn)
-            print("Pot en jeu : " + str(self._board.stack))
+            print("Pot en jeu : " + str(self._board.board_stack))
             Game.turn_final(self)
 
     def turn_final(self):
@@ -245,10 +245,10 @@ class Game:
                     winner = self._players[i].value
         for i in range(self._all_player_number):
             if winner == self._players[i].value and self._players[i].keep_playing == 1:
-                print('Player ' + str(i) + ' win ' + str(self._board.stack))
+                print('Player ' + str(i) + ' win ' + str(self._board.board_stack))
                 print(Compare(self._players[i].cards, self._board.board_cards).text_combinaison(self._board_cards))
-                self._players[i].set_stack(self._players[i].player_stack + self._board.stack)
-                self._board.stack = 0
+                self._players[i].set_stack(self._players[i].player_stack + self._board.board_stack)
+                self._board.set_stack(0)
 
     @property
     def game_user(self):
