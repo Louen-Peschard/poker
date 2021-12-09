@@ -2,12 +2,14 @@ from tkinter import *
 import tkinter as tk
 from tkinter.messagebox import showinfo
 from game import Game
+import random
 
-# Initializing the game
-game = Game()
-game.start_game()
-for i in range(2):
-    print(game.game_user.player_cards[i])
+# Demande un seed à l'utilisateur pour "contrôler" le random
+user_seed = input("Spécifiez un seed : ")
+if user_seed == "":
+    user_seed = random.randint(0, 424242)  # Random si vide
+random.seed(user_seed)
+
 
 
 class Interface:
@@ -120,4 +122,14 @@ class Interface:
 
 
 if __name__ == '__main__':
+    # Initializing the game
+    game = Game()
+    game.start_game()
+    game.turn_one()
+    # for i in range(2):
+    #     print(game.game_user.player_cards[i])
     i = Interface()
+
+
+
+

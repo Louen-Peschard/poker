@@ -15,7 +15,6 @@ class Compare:
     def board_and_hand_strength(self, number_of_draw):
         cards_draw = number_of_draw
         value = 0
-        self.player_and_board_cards = self.player_cards
         for i in range(cards_draw):
             self.player_and_board_cards.append(self.board_cards[i])  # Card list + board
 
@@ -50,7 +49,6 @@ class Compare:
 
     def text_combinaison(self, number_of_draw):
         cards_draw = number_of_draw
-        self.player_and_board_cards = self.player_cards
         for i in range(cards_draw):
             self.player_and_board_cards.append(self.board_cards[i])  # Card list + board
 
