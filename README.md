@@ -7,7 +7,6 @@
 - Exécution : lancer <i>interface.txt<i>, la seed doit être saisie dans la console !
 
 ## Fonctionnalités ajoutées :
-
 - Génération des cartes avec une seed
 - Interface graphique avec affichage des cartes de la main du joueur et du plateau en début de partie
 - Gestion du reste de la partie sur la console

@@ -38,8 +38,8 @@ class Game:
         # For the board
         print("Cartes de la table :")
         for i in range(self._board_cards):
-            self._board.cards.append(self._deck.cards.pop(0))
-            print(self._board.cards[i])
+            self._board.board_cards.append(self._deck.cards.pop(0))
+            print(self._board.board_cards[i])
 
     def bet_choice(self, player_number, turn):
         print("Joueur : " + str(player_number))
@@ -178,7 +178,7 @@ class Game:
         else:
             print("Carte en jeu : ")
             for i in range(self._board_cards):
-                print(self._board.cards[i])
+                print(self._board.board_cards[i])
             if self._players[self._player_user].keep_playing == 1:
                 Game.bet_choice(self, self._player_user, turn)
             for i in range(self._players_number):
@@ -200,7 +200,7 @@ class Game:
         else:
             print("Carte en jeu : ")
             for i in range(self._board_cards):
-                print(self._board.cards[i])
+                print(self._board.board_cards[i])
             if self._players[self._player_user].keep_playing == 1:
                 Game.bet_choice(self, self._player_user, turn)
             for i in range(self._players_number):
@@ -222,7 +222,7 @@ class Game:
         else:
             print("Carte en jeu : ")
             for i in range(self._board_cards):
-                print(self._board.cards[i])
+                print(self._board.board_cards[i])
             if self._players[self._player_user].keep_playing == 1:
                 Game.bet_choice(self, self._player_user, turn)
             for i in range(self._players_number):
@@ -238,7 +238,7 @@ class Game:
             if self._players[i].keep_playing == 1:
 
                 self._players[i].value = Compare(self._players[i].cards,
-                                                 self._board.cards).board_and_hand_strength(self._board_cards)
+                                                 self._board.board_cards).board_and_hand_strength(self._board_cards)
                 print("Joueur " + str(i) + " :")
                 print(self._players[i].value)
                 if winner < self._players[i].value:
@@ -246,7 +246,7 @@ class Game:
         for i in range(self._all_player_number):
             if winner == self._players[i].value and self._players[i].keep_playing == 1:
                 print('Player ' + str(i) + ' win ' + str(self._board.stack))
-                print(Compare(self._players[i].cards, self._board.cards).text_combinaison(self._board_cards))
+                print(Compare(self._players[i].cards, self._board.board_cards).text_combinaison(self._board_cards))
                 self._players[i].set_stack(self._players[i].player_stack + self._board.stack)
                 self._board.stack = 0
 
