@@ -4,7 +4,7 @@
 
 - Application imitant le principe d'une partie de poker, avec trois autres joueurs automatiques.
 - Contexte : Petit projet Python réaliser à l'EPSI
-- Exécution : lancer <i>interface.txt<i>
+- Exécution : lancer <i>interface.txt<i>, la seed doit être saisie dans la console !
 
 ## Fonctionnalités ajoutées :
 
