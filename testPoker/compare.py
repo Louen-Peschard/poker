@@ -88,7 +88,7 @@ class Compare:
         list_of_cards = list_parameter
         list_of_symbol = []
         for i in range(len(list_of_cards)):
-            list_of_symbol.append(list_of_cards[i].card_symbol())
+            list_of_symbol.append(list_of_cards[i].symbol)
         return list_of_symbol
 
     def test_occurence(self, card_list_parameter: list):
