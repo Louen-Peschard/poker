@@ -10,9 +10,8 @@ class Compare:
         self.board_cards = board_cards_to_compare
         self.player_and_board_cards = self.player_cards
 
-    """Compare hand only or hand + board"""
-
     def board_and_hand_strength(self, number_of_draw):
+        """Compare hand only or hand + board"""
         cards_draw = number_of_draw
         value = 0
         for i in range(cards_draw):
@@ -45,9 +44,10 @@ class Compare:
         self.player_and_board_cards = self.player_cards
         return value
 
-    """Compare but return Text"""
+
 
     def text_combinaison(self, number_of_draw):
+        """Compare but return Text"""
         cards_draw = number_of_draw
         for i in range(cards_draw):
             self.player_and_board_cards.append(self.board_cards[i])  # Card list + board
@@ -77,27 +77,30 @@ class Compare:
         self.player_and_board_cards = self.player_cards
         return "High Card"
 
-    """Order list of card with value"""
+
 
     def list_in_value(self, list_parameter):
+        """Order list of card with value"""
         list_of_cards = list_parameter
         list_of_value = []
         for i in range(len(list_of_cards)):
             list_of_value.append(list_of_cards[i].card_strength())
         return list_of_value
 
-    """Order list of card with symbole"""
+
 
     def list_in_symbole(self, list_parameter):
+        """Order list of card with symbole"""
         list_of_cards = list_parameter
         list_of_symbol = []
         for i in range(len(list_of_cards)):
             list_of_symbol.append(list_of_cards[i].symbol)
         return list_of_symbol
 
-    """Test for Pair, Three of a kind or Four of a Kind"""
+
 
     def test_occurence(self, card_list_parameter: list):
+        """Test for Pair, Three of a kind or Four of a Kind"""
         list_to_test = self.list_in_value(card_list_parameter)  # List in Value
         number_of_cards = len(list_to_test)
         list_occurenced = Counter(list_to_test)
@@ -141,9 +144,10 @@ class Compare:
         else:
             return "High Card"
 
-    """Test for Straight and Royal (have to be compare with Flush too=)"""
+
 
     def test_straight(self, card_list_parameter: list):
+        """Test for Straight and Royal (have to be compare with Flush too=)"""
         list_to_test = self.list_in_value(card_list_parameter)  # List in value
         number_of_cards = len(list_to_test)
         list_sorted = sorted(list_to_test)
