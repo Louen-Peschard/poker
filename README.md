@@ -8,6 +8,8 @@ Application imitant le principe d'une partie de poker, avec trois autres joueurs
 
 - Génération des cartes avec une seed
 - Interface graphique avec affichage des cartes de la main du joueur
+- Combinaisons
+- Mises
 
 ## Ce qu'il reste à faire :
 
