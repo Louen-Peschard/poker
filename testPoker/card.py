@@ -8,14 +8,6 @@ class Card:
     def __str__(self):
         return self._value + self._symbol
 
-    @property
-    def symbol(self):
-        return self._symbol
-
-    @property
-    def value(self):
-        return self._value
-
     def card_strength(self):
         value = 0
         if self._value == "J":
@@ -30,5 +22,10 @@ class Card:
             value = int(self._value)
         return value
 
-    def card_symbol(self):
+    @property
+    def symbol(self):
         return self._symbol
+
+    @property
+    def value(self):
+        return self._value
