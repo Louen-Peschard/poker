@@ -91,6 +91,7 @@ class Interface:
         # Display
         window.mainloop()
 
+
     def optionList(self):
         # TODO Faire l'action des choix du dropdown menu
         print("Action de la dropdown List")
@@ -122,13 +123,14 @@ class Interface:
 
 
 if __name__ == '__main__':
+
     # Initializing the game
     game = Game()
     game.start_game()
     game.turn_one()
-    # for i in range(2):
-    #     print(game.game_user.player_cards[i])
     i = Interface()
+
+
 
 
 
