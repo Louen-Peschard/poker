@@ -4,15 +4,14 @@ from collections import Counter
 
 
 class Compare:
-    """Compare hand only or hand + board"""
+
 
     def __init__(self, player_cards_to_compare: Player.player_cards, board_cards_to_compare: Board.board_cards):
         self.player_cards = player_cards_to_compare
         self.board_cards = board_cards_to_compare
         self.player_and_board_cards = self.player_cards
 
-
-
+    """Compare hand only or hand + board"""
     def board_and_hand_strength(self, number_of_draw):
         cards_draw = number_of_draw
         value = 0
@@ -46,7 +45,7 @@ class Compare:
         self.player_and_board_cards = self.player_cards
         return value
 
-
+    """Compare but return Text"""
     def text_combinaison(self, number_of_draw):
         cards_draw = number_of_draw
         for i in range(cards_draw):
@@ -76,6 +75,7 @@ class Compare:
             return "One Pair"
         self.player_and_board_cards = self.player_cards
         return "Hauteur"
+
 
     def list_in_value(self, list_parameter):
         list_of_cards = list_parameter
