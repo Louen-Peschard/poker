@@ -232,12 +232,13 @@ class Game:
             Game.turn_final(self)
 
     def turn_final(self):
+        self._board_cards = 5
         winner = 0
         for i in range(self._all_player_number):
             if self._players[i].keep_playing == 1:
 
                 self._players[i].value = Compare(self._players[i].player_cards,
-                                                 self._board.board_cards).board_and_hand_strength(5)
+                                                 self._board.board_cards).board_and_hand_strength(self._board_cards)
                 print("Joueur " + str(i) + " :")
                 print(self._players[i].value)
                 if winner < self._players[i].value:
@@ -245,7 +246,7 @@ class Game:
         for i in range(self._all_player_number):
             if winner == self._players[i].value and self._players[i].keep_playing == 1:
                 print('Player ' + str(i) + ' win ' + str(self._board.stack))
-                print(Compare(self._players[i].player_cards, self._board.board_cards).text_combinaison(5))
+                print(Compare(self._players[i].player_cards, self._board.board_cards).text_combinaison(self._board_cards))
                 self._players[i].set_stack(self._players[i].player_stack + self._board.stack)
                 self._board.stack = 0
 
